@@ -6,24 +6,18 @@ class GamesController < ApplicationController
   end
 
   def score
-    @word = params[:word]
-    @grid = params[:grid]
-
-
-    # if from_grid?(@word)
-    #   @message = "Sorry but #{@word.upcase} can't be built out of #{@grid}"
-    # els
-    if english?(@word)
-      @message = "Sorry but #{@word.upcase} doesn't seem to be a valid English word!"
-    else
-      @message = "Congratulations! #{@word.upcase} is a valid English word!"
-    end
+    @word = params[:word].upcase
+    @grid = params[:grid].upcase
+    @included = included?(@word, @grid)
+    @english = english?(@word)
   end
 
   private
 
-  def from_grid?(word)
-
+  def included?(word, grid)
+    word.chars.all? do |letter|
+      word.count(letter) <= grid.split(", ").count(letter)
+    end
   end
 
   def english?(word)
