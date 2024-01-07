@@ -7,8 +7,9 @@
     <% end %>
   </div>
 
-  <form action="/score" method="post">
-  <input type="text" name="member" placeholder="Who are you looking for?">
+<form action="score" method="post" data-turbo="false">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <input type="text" name="word" placeholder="What is the longest word you can find?">
   <input type="submit">
 </form>
 </div>
