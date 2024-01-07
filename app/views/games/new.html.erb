@@ -1,2 +1,17 @@
-<h1>Games#new</h1>
-<p>Find me in app/views/games/new.html.erb</p>
+<div class="container">
+  <h1>New game</h1>
+
+  <div class="d-flex">
+    <% @grid.each do |letter| %>
+      <%= letter %>
+    <% end %>
+  </div>
+
+  <form action="/score" method="post">
+    <label class="form-label">What is the longest word you can find?</label>
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" aria-describedby="button-addon">
+      <button class="btn btn-outline-secondary" type="button" id="button-addon">Play</button>
+    </div>
+  </form>
+</div>
