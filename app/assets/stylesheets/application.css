@@ -13,3 +13,30 @@
  *= require_tree .
  *= require_self
  */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+.container {
+  width: 600px;
+  margin: 0 auto;
+  padding: 16px;
+}
+.card-letter {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  font-size: 24px;
+  height: 40px;
+  width: 40px;
+  background-color: #3498DB;
+  text-align: center;
+  color: white;
+  box-shadow: 0 10px 30px rgba(0,0,0,.1);
+}
+a {
+  text-decoration: none;
+}
+label {
+  color: rgba(0, 0, 0, 0.6);
+}

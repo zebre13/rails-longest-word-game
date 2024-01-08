@@ -1,16 +1,23 @@
 <div class="container">
   <h1>New game</h1>
 
-  <div class="d-flex">
+  <div class="d-flex justify-content-between my-3">
     <% @grid.each do |letter| %>
-      <%= letter %>
+      <div class="card-letter">
+        <%= letter %>
+      </div>
     <% end %>
   </div>
 
   <form action="score" method="post" data-turbo="false">
     <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
     <%= hidden_field_tag :grid, @grid.join(", ") %>
-    <input type="text" name="word" placeholder="What is the longest word you can find?">
-    <input type="submit">
+    <label for="longestWord">What is the longest word you can find?</label>
+    <div class="input-group mb-3">
+      <input type="text" name="word" class="form-control" id="longestWord" placeholder="">
+      <div class="input-group-append">
+        <input class="btn btn-outline-secondary" type="submit" value="Play">
+      </div>
+    </div>
   </form>
 </div>
