@@ -22,8 +22,12 @@ class GamesController < ApplicationController
 
   def english?(word)
     url = "https://wagon-dictionary.herokuapp.com/#{word.downcase}"
-    response = RestClient.get url
-    result = JSON.parse(response)
-    return result["found"]
+    response = URI.open(url)
+    json = JSON.parse(response.read)
+    json["found"]
+    # url = "https://wagon-dictionary.herokuapp.com/#{word.downcase}"
+    # response = RestClient.get url
+    # result = JSON.parse(response)
+    # return result["found"]
   end
 end
